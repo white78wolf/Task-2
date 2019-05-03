@@ -60,7 +60,6 @@
         function getCoordinates() {
             let coordinates = document.getElementById('coordinates')
                 .value.split('');                                    // превращаем введённую строку в массив символов
-
             coordinates[0] = coordinates[0].toUpperCase();                     // приводим символы к заглавному виду
 
             if (coordinates.length == 2 && letters.includes(coordinates[0]) && // проверяем ввод на валидность
@@ -75,12 +74,10 @@
 
                 let xNext, yNext, offsetY;             // координаты конечного положения фигуры коня и величина смещения по Y
                 for (let i = 0; i < shiftings.length; i++) {
-
                     xNext = coordinates[0] + shiftings[i];                          // получаем сдвиг по X
                     offsetY = Math.sqrt(radiusOfMoves - Math.pow(shiftings[i], 2)); // смещение по Y со знаком +/-
 
                     for (let j = 1; j < 3; j++) {
-
                         yNext = coordinates[1] + Math.pow(-1, j) * offsetY;
                         if (xNext > 0 && xNext < 9 && yNext > 0 && yNext < 9) {  // проверяем попадание координат в размеры доски 8x8
                             moves.push([xNext, yNext]);                          // добавляем координаты хода в массив результатов
